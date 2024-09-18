@@ -1,0 +1,124 @@
+/* Main container layout */
+.main-container {
+    display: flex;
+    height: 100vh;
+    background-color: #f0f2f5;
+  }
+  
+  /* Sidebar styles */
+  .sidebar {
+    width: 250px;
+    background-color: #1877f2; /* Facebook-like blue */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+  
+  .menu-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .menu-items {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .nav-item {
+    margin-bottom: 20px;
+  }
+  
+  .nav-button {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .nav-button:hover {
+    background-color: #2851a3; /* Darker blue on hover */
+  }
+  
+  .icon {
+    margin-right: 10px;
+  }
+  
+  .logout {
+    color: #ff4b5c;
+  }
+  
+  .logout:hover {
+    background-color: #e43e4c;
+  }
+  
+  /* Main content styles */
+  .main-content {
+    flex: 1;
+    padding: 40px;
+    background-color: white;
+  }
+  
+  .welcome-section {
+    margin-bottom: 20px;
+  }
+  
+  .create-room-section,
+  .chat-rooms-section {
+    margin-bottom: 20px;
+  }
+  
+  .input-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+  
+  .create-room-button {
+    background-color: #1877f2;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .create-room-button:hover {
+    background-color: #2851a3;
+  }
+  
+  .chat-room-item {
+    padding: 15px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .chat-room-item:hover {
+    background-color: #e7e7e7;
+  }
+  

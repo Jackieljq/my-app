@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* custom color */
+.bg-custom-orange {
+    background-color: rgb(247, 171, 59);
+}
+
+.bg-custom-orange-dark {
+    background-color: rgb(220, 150, 40);
+}
+
+.text-custom-orange {
+    color: rgb(247, 171, 59);
+}
+
+.bg-custom-green {
+    background-color: rgb(4, 132, 146);
+}
+
+.bg-custom-green-hover:hover {
+    background-color: rgba(4, 132, 146, 0.3);
+}
+
+.text-custom-red {
+    color: rgb(237, 28, 36);
+}
+
+.text-custom-red-hover:hover {
+    color: rgba(237, 28, 36, 0.8);
+}
