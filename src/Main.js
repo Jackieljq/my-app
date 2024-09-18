@@ -8,7 +8,7 @@ import Profile from './Profile'; // Import Profile component
 
 // AASYP Logo component
 const AASYPLogo = () => (
-  <img src="path/to/logo_image.png" alt="AASYP Logo" className="logo-image" />
+  <img src="/logo_image.png" alt="AASYP Logo" className="logo-image" />
 );
 
 // Sidebar Navigation component
