@@ -11,7 +11,6 @@ function App() {
   const [username, setUsername] = useState('');
 
   useEffect(() => {
-    // 检查 localStorage 中是否有用户信息
     const storedUsername = localStorage.getItem('username');
     if (storedUsername) {
       setUsername(storedUsername);
@@ -26,7 +25,6 @@ function App() {
   };
 
   const handleLogout = () => {
-    // 清除 localStorage 中的用户名并将用户标记为未登录
     localStorage.removeItem('username');
     setUsername('');
     setIsAuthenticated(false);
