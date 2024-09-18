@@ -1,0 +1,124 @@
+/* Unify the chat list appearance */
+.chat-list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Remove individual borders and make the chat list feel seamless */
+  .chat-room-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;  /* Only add vertical padding to give spacing */
+    cursor: pointer;
+    position: relative;
+    background-color: transparent;
+    border-bottom: 1px solid #e5e7eb;  /* Add a light separator line between items */
+  }
+  
+  .chat-room-item:last-child {
+    border-bottom: none;  /* Remove separator for the last item */
+  }
+  
+  /* User icon */
+  .user-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    margin-right: 10px;
+  }
+  
+  /* Chat details */
+  .chat-details {
+    flex-grow: 1;
+  }
+  
+  .chat-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .chat-message {
+    font-size: 14px;
+    color: #6b7280;
+    margin-top: 4px;
+  }
+  
+  /* Tooltip styling */
+.user-tooltip {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    width: 250px;
+    visibility: visible;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateY(10px);
+    opacity: 1;
+  }
+  
+  /* Ensure that the tooltip does not affect layout of other elements */
+  .tooltip-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .tooltip-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .tooltip-initials {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    margin-right: 10px;
+  }
+  
+  .tooltip-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .tooltip-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .tooltip-title {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+  }
+  
+  .tooltip-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    color: #666;
+  }
+  
+  .tooltip-location,
+  .tooltip-timezone {
+    margin: 0;
+  }
+  
