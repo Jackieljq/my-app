@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Search, MessageCircle, Users, User, LogOut, Paperclip, Camera, Video, Send } from 'lucide-react';
 import './Main.css';
-import Chats from './Chats'; // Import the Chats component
-import Friends from './Friends'; // Ensure Friends.js is imported
+import Chats from './Chats'; // Import Chats component
+import Friends from './Friends'; // Import Friends component
+import Teams from './Teams'; // Import Teams component
+import Profile from './Profile'; // Import Profile component
 
 // AASYP Logo component
 const AASYPLogo = () => (
@@ -61,14 +63,14 @@ const Sidebar = ({ activeTab, onTabChange, onLogout }) => (
   </nav>
 );
 
-// ChatRoom component for individual chat interactions
-const ChatRoom = ({ selectedChat, messages, onBack }) => (
+// ChatRoom component for individual chat interactions (for friends/teams)
+const ChatRoom = ({ selectedItem, messages, onBack }) => (
   <div className="chat-room">
     <div className="chat-header">
       <button className="back-button" onClick={onBack}>&larr;</button>
-      <div className="user-icon" style={{ backgroundColor: selectedChat.color }}>{selectedChat.initials}</div>
+      <div className="user-icon" style={{ backgroundColor: selectedItem.color }}>{selectedItem.initials}</div>
       <div className="chat-header-details">
-        <p className="chat-name">{selectedChat.name}</p>
+        <p className="chat-name">{selectedItem.name}</p>
         <p className="chat-status">Online</p>
       </div>
     </div>
@@ -90,48 +92,55 @@ const ChatRoom = ({ selectedChat, messages, onBack }) => (
 // Main Component
 const Main = ({ username, onLogout }) => {
   const [activeTab, setActiveTab] = useState('chats'); // Default to 'chats'
-  const [selectedChat, setSelectedChat] = useState(null);
-  const [chatMessages, setChatMessages] = useState({
-    'John Doe': [{ sender: 'John Doe', text: 'Hi there! How are you today?' }],
-    'Jane Smith': [{ sender: 'Jane Smith', text: 'Lunch at 1pm?' }],
-    'Tech Group': [{ sender: 'Alice', text: 'Has anyone tried the new framework?' }],
-    'Marketing Team': [{ sender: 'Bob', text: 'Let\'s discuss the new campaign ideas.' }]
+  const [selectedItem, setSelectedItem] = useState(null); // Selected friend or team
+  const [teamMessages, setTeamMessages] = useState({
+    'Marketing Team': [{ sender: 'Bob', text: 'Let\'s discuss the new campaign ideas.' }],
+    'Development Team': [{ sender: 'Alice', text: 'Has anyone tried the new framework?' }]
   });
-
-  
+  const [friendMessages, setFriendMessages] = useState({
+    'John Doe': [{ sender: 'John Doe', text: 'Hi there! How are you today?' }],
+    'Jane Smith': [{ sender: 'Jane Smith', text: 'Last seen 2h ago' }]
+  });
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
-    setSelectedChat(null);
+    setSelectedItem(null); // Reset the selected item (friend or team)
   };
 
-  const handleSelectChat = (chat) => {
-    setSelectedChat(chat);
+  const handleSelectFriend = (friend) => {
+    setSelectedItem(friend);
   };
 
-  const handleBackToChats = () => {
-    setSelectedChat(null);
+  const handleSelectTeam = (team) => {
+    setSelectedItem(team);
+  };
+
+  const handleBackToList = () => {
+    setSelectedItem(null); // Go back to the list (friends/teams)
   };
 
   const renderContent = () => {
-    if (selectedChat) {
-      return <ChatRoom selectedChat={selectedChat} messages={chatMessages[selectedChat.name]} onBack={handleBackToChats} />;
+    if (selectedItem) {
+      const messages =
+        activeTab === 'teams'
+          ? teamMessages[selectedItem.name]
+          : friendMessages[selectedItem.name];
+      return <ChatRoom selectedItem={selectedItem} messages={messages} onBack={handleBackToList} />;
     }
 
     switch (activeTab) {
       case 'chats':
-        return <Chats onSelectChat={handleSelectChat} />; // Chats component loaded here
+        return <Chats onSelectChat={handleSelectTeam} />;
       case 'friends':
-        return <div><h2 className="section-title">Friends</h2></div>;
+        return <Friends onSelectFriend={handleSelectFriend} />;
       case 'teams':
-        return <div><h2 className="section-title">Teams</h2></div>;
+        return <Teams onSelectTeam={handleSelectTeam} />;
       case 'profile':
-        return <div><h2 className="section-title">Profile</h2></div>;
+        return <Profile />; // Profile component rendered here
       default:
-        return <Chats onSelectChat={handleSelectChat} />;
+        return <Chats onSelectChat={handleSelectTeam} />;
     }
   };
-
 
   return (
     <div className="main-container">
@@ -148,7 +157,5 @@ const Main = ({ username, onLogout }) => {
     </div>
   );
 };
-
-
 
 export default Main;

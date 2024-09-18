@@ -1,0 +1,48 @@
+/* Team list layout */
+.team-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background-color: #f8fafc;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .team-item:hover {
+    background-color: #e5f2ff;
+    transform: translateY(-2px);
+  }
+  
+  .team-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #64b5f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    margin-right: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  
+  .team-details {
+    flex-grow: 1;
+  }
+  
+  .team-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .team-message {
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
