@@ -11,6 +11,8 @@
   max-width: 800px;
   margin: auto;
   margin-top: 40px;
+  border: 1px solid #e0e0e0;
+  font-family: 'Roboto', sans-serif; /* Modern font for body text */
 }
 
 /* Profile Header Section */
@@ -31,16 +33,19 @@
   color: white;
   background-color: #ba68c8;
   margin-right: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the avatar */
 }
 
 .profile-details {
   text-align: left;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
 }
 
 .profile-name {
   font-size: 28px;
   font-weight: 600;
   color: #333;
+  font-family: 'Poppins', sans-serif; /* Elegant font for name */
 }
 
 .profile-username {
@@ -54,6 +59,10 @@
   justify-content: space-between;
   width: 100%;
   margin-bottom: 40px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Soft shadow for profile info */
 }
 
 .work-info,
@@ -66,6 +75,7 @@
   font-size: 20px;
   margin-bottom: 12px;
   color: #444;
+  font-family: 'Poppins', sans-serif; /* Use Poppins for headings */
 }
 
 .work-info p,
@@ -73,6 +83,7 @@
   font-size: 16px;
   margin: 8px 0;
   color: #555;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* Profile Action Section */
@@ -90,31 +101,11 @@
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for button */
 }
 
 .admin-button:hover {
   background-color: #d32f2f;
-}
-
-/* Adding Subtle Shadows and Borders */
-.profile-container {
-  border: 1px solid #e0e0e0;
-}
-
-.profile-avatar {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.profile-info {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-}
-
-.profile-details {
-  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 /* Admin Form Styles */
@@ -145,18 +136,16 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  /* Space between form elements */
   padding: 20px;
   background-color: #ffffff;
   border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for form */
 }
 
 .admin-form label {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-  /* Space between rows */
 }
 
 .admin-form label input {
@@ -180,7 +169,6 @@
 
 .admin-form button:hover {
   background-color: #ab47bc;
-  /* Slightly darker shade on hover */
 }
 
 /* Form Title */
@@ -189,6 +177,28 @@
   margin-bottom: 20px;
   font-size: 24px;
   color: #333;
-  flex-basis: 100%;
-  /* Ensures the title takes full width */
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .work-info,
+  .location-info {
+    width: 100%;
+    margin-bottom: 20px; /* Add space between sections */
+  }
+
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-avatar {
+    margin-bottom: 20px;
+  }
 }

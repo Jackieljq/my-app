@@ -1,48 +1,59 @@
 /* Team list layout */
 .team-item {
-    display: flex;
-    align-items: center;
-    padding: 12px;
-    background-color: #f8fafc;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  }
-  
-  .team-item:hover {
-    background-color: #e5f2ff;
-    transform: translateY(-2px);
-  }
-  
-  .team-icon {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background-color: #64b5f6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: white;
-    margin-right: 10px;
-    font-size: 14px;
-    text-transform: uppercase;
-  }
-  
-  .team-details {
-    flex-grow: 1;
-  }
-  
-  .team-name {
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-  }
-  
-  .team-message {
-    font-size: 14px;
-    color: #6b7280;
-  }
-  
+  display: flex;
+  align-items: center;
+  padding: 8px; /* Match padding with Friends module */
+  background-color: #f8fafc;
+  border-radius: 8px; /* Consistent border-radius */
+  margin-bottom: 6px; /* Reduced margin for compact design */
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Consistent box-shadow */
+}
+
+.team-item:hover {
+  background-color: #e5f2ff;
+  transform: translateY(-1px); /* Reduced transform effect */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Slight shadow on hover */
+}
+
+/* Team icon styling */
+.team-icon {
+  width: 40px; /* Reduced size to match Friends module */
+  height: 40px;
+  border-radius: 50%;
+  background-color: #64b5f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600; /* Bold font for initials */
+  color: white;
+  margin-right: 8px; /* Reduced spacing for compact design */
+  font-size: 13px; /* Reduced font size for initials */
+  text-transform: uppercase;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Team details layout */
+.team-details {
+  flex-grow: 1;
+}
+
+/* Team name styling */
+.team-name {
+  font-size: 15px; /* Same size as Friends name */
+  font-weight: 600; /* Bold font for consistency */
+  color: #333;
+  letter-spacing: 0.4px; /* Slight letter-spacing for readability */
+  font-family: 'Poppins', sans-serif; /* Same font as Friends module */
+}
+
+/* Team message styling */
+.team-message {
+  font-size: 13px; /* Match message size with Friends module */
+  color: #6b7280;
+  font-family: 'Roboto', sans-serif; /* Same font as Friends status */
+  font-weight: 400; /* Normal weight for message content */
+  letter-spacing: 0.2px; /* Subtle letter-spacing */
+  margin-top: 2px; /* Slight margin between name and message */
+}
