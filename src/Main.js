@@ -99,7 +99,7 @@ const Main = ({ username, onLogout }) => {
   });
   const [friendMessages, setFriendMessages] = useState({
     'John Doe': [{ sender: 'John Doe', text: 'Hi there! How are you today?' }],
-    'Jane Smith': [{ sender: 'Jane Smith', text: 'Last seen 2h ago' }]
+    'Jane Smith': [{ sender: 'Jane Smith', text: 'Are we still on for lunch?' }]
   });
 
   const handleTabChange = (tab) => {
