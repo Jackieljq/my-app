@@ -1,124 +1,208 @@
-/* Unify the chat list appearance */
-.chat-list {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    margin: 0;
-  }
-  
-  /* Remove individual borders and make the chat list feel seamless */
-  .chat-room-item {
-    display: flex;
-    align-items: center;
-    padding: 12px 0;  /* Only add vertical padding to give spacing */
-    cursor: pointer;
-    position: relative;
-    background-color: transparent;
-    border-bottom: 1px solid #e5e7eb;  /* Add a light separator line between items */
-  }
-  
-  .chat-room-item:last-child {
-    border-bottom: none;  /* Remove separator for the last item */
-  }
-  
-  /* User icon */
-  .user-icon {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: white;
-    text-transform: uppercase;
-    margin-right: 10px;
-  }
-  
-  /* Chat details */
-  .chat-details {
-    flex-grow: 1;
-  }
-  
-  .chat-name {
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-  }
-  
-  .chat-message {
-    font-size: 14px;
-    color: #6b7280;
-    margin-top: 4px;
-  }
-  
-  /* Tooltip styling */
-.user-tooltip {
-    position: absolute;
-    background-color: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-    width: 250px;
-    visibility: visible;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    transform: translateY(10px);
-    opacity: 1;
-  }
-  
-  /* Ensure that the tooltip does not affect layout of other elements */
-  .tooltip-content {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .tooltip-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .tooltip-initials {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: white;
-    text-transform: uppercase;
-    margin-right: 10px;
-  }
-  
-  .tooltip-details {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .tooltip-name {
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  .tooltip-title {
-    font-size: 14px;
-    color: #666;
-    margin: 0;
-  }
-  
-  .tooltip-info {
-    display: flex;
-    flex-direction: column;
-    font-size: 13px;
-    color: #666;
-  }
-  
-  .tooltip-location,
-  .tooltip-timezone {
-    margin: 0;
-  }
-  
+/* General font styling */
+body, .chat-list {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  color: #333;
+}
+
+/* Chat message bubbles */
+.chat-room-messages {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  background-color: #f9fafb;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  max-width: 70%;
+  margin-bottom: 15px;
+  word-wrap: break-word;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.message:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Optimized message content for readability */
+.message-content {
+  font-family: 'Roboto', sans-serif; /* Use a clean, readable font for messages */
+  font-weight: 400; /* Normal weight for message content */
+  font-size: 15px; /* Slightly larger font for better readability */
+  line-height: 1.6; /* Increased line height for better spacing */
+  letter-spacing: 0.2px; /* Add subtle letter spacing for flow */
+}
+
+/* Messages sent by others */
+.message.received {
+  justify-content: flex-start;
+}
+
+.message.received .message-content {
+  background: linear-gradient(135deg, #e3f2fd, #d9eafc); /* Gradient background */
+  color: #333;
+  border-radius: 20px 20px 20px 5px;
+  padding: 12px 18px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Messages sent by the user */
+.message.sent {
+  justify-content: flex-end;
+}
+
+.message.sent .message-content {
+  background: linear-gradient(135deg, #1a73e8, #4285f4);
+  color: white;
+  border-radius: 20px 20px 5px 20px;
+  padding: 12px 18px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.message.sent .message-content:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Avatar for messages */
+.message .user-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  font-size: 14px;
+  margin-right: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Chat header */
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.chat-header .chat-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Chat input area */
+.chat-room-input {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+}
+
+.chat-room-input .input {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  margin-right: 10px;
+  background-color: #f3f4f6;
+  font-family: 'Roboto', sans-serif; /* Ensure input text matches the message font */
+}
+
+.chat-room-input .input:focus {
+  box-shadow: 0 0 8px rgba(26, 115, 232, 0.3);
+  outline: none;
+}
+
+/* Send Button Styling */
+.send-button {
+  background: linear-gradient(135deg, #1a73e8, #4285f4);
+  color: white;
+  padding: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.send-button:hover {
+  background: linear-gradient(135deg, #155bb5, #316dbf);
+  transform: scale(1.1);
+}
+ /* Tooltip styling */
+ .user-tooltip {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  width: 250px;
+  visibility: visible;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(10px);
+  opacity: 1;
+}
+
+/* Ensure that the tooltip does not affect layout of other elements */
+.tooltip-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.tooltip-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.tooltip-initials {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  margin-right: 10px;
+}
+
+.tooltip-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.tooltip-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.tooltip-title {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.tooltip-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  color: #666;
+}
+
+.tooltip-location,
+.tooltip-timezone {
+  margin: 0;
+}
