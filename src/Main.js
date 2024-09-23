@@ -64,7 +64,7 @@ const Sidebar = ({ activeTab, onTabChange, onLogout }) => (
 );
 
 // ChatRoom component for individual chat interactions (for friends/teams)
-const ChatRoom = ({ selectedItem, messages, onBack }) => (
+const ChatRoom = ({ selectedItem, messages = [], onBack }) => (
   <div className="chat-room">
     <div className="chat-header">
       <button className="back-button" onClick={onBack}>&larr;</button>
@@ -95,7 +95,8 @@ const Main = ({ username, onLogout }) => {
   const [selectedItem, setSelectedItem] = useState(null); // Selected friend or team
   const [teamMessages, setTeamMessages] = useState({
     'Marketing Team': [{ sender: 'Bob', text: 'Let\'s discuss the new campaign ideas.' }],
-    'Development Team': [{ sender: 'Alice', text: 'Has anyone tried the new framework?' }]
+    'Development Team': [{ sender: 'Alice', text: 'Has anyone tried the new framework?' }],
+    'Tech Group': [{ sender: 'Alice', text: 'Has anyone tried the new framework?' }]
   });
   const [friendMessages, setFriendMessages] = useState({
     'John Doe': [{ sender: 'John Doe', text: 'Hi there! How are you today?' }],
@@ -107,12 +108,8 @@ const Main = ({ username, onLogout }) => {
     setSelectedItem(null); // Reset the selected item (friend or team)
   };
 
-  const handleSelectFriend = (friend) => {
-    setSelectedItem(friend);
-  };
-
-  const handleSelectTeam = (team) => {
-    setSelectedItem(team);
+  const handleSelectChat = (chat) => {
+    setSelectedItem(chat);
   };
 
   const handleBackToList = () => {
@@ -130,15 +127,15 @@ const Main = ({ username, onLogout }) => {
 
     switch (activeTab) {
       case 'chats':
-        return <Chats onSelectChat={handleSelectTeam} />;
+        return <Chats onSelectChat={handleSelectChat} />; // Now properly pass handleSelectChat
       case 'friends':
-        return <Friends onSelectFriend={handleSelectFriend} />;
+        return <Friends onSelectFriend={handleSelectChat} />; // Friends selection is also handled by the same function
       case 'teams':
-        return <Teams onSelectTeam={handleSelectTeam} />;
+        return <Teams onSelectTeam={handleSelectChat} />; // Teams also handled
       case 'profile':
         return <Profile />; // Profile component rendered here
       default:
-        return <Chats onSelectChat={handleSelectTeam} />;
+        return <Chats onSelectChat={handleSelectChat} />;
     }
   };
 
