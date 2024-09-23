@@ -56,17 +56,20 @@
   margin-bottom: 40px;
 }
 
-.work-info, .location-info {
+.work-info,
+.location-info {
   width: 48%;
 }
 
-.work-info h3, .location-info h3 {
+.work-info h3,
+.location-info h3 {
   font-size: 20px;
   margin-bottom: 12px;
   color: #444;
 }
 
-.work-info p, .location-info p {
+.work-info p,
+.location-info p {
   font-size: 16px;
   margin: 8px 0;
   color: #555;
@@ -112,4 +115,80 @@
 
 .profile-details {
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Admin Form Styles */
+.admin-form-container {
+  position: relative;
+  width: 100%;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #ba68c8;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 10;
+}
+
+.back-button:hover {
+  background-color: #ab47bc;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* Space between form elements */
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  /* Space between rows */
+}
+
+.admin-form label input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.admin-form button {
+  background-color: #ba68c8;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.admin-form button:hover {
+  background-color: #ab47bc;
+  /* Slightly darker shade on hover */
+}
+
+/* Form Title */
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  flex-basis: 100%;
+  /* Ensures the title takes full width */
 }
