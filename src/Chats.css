@@ -5,140 +5,78 @@ body, .chat-list {
   color: #333;
 }
 
-/* Chat message bubbles */
-.chat-room-messages {
+/* Chat list layout */
+.chat-list {
   display: flex;
   flex-direction: column;
-  padding: 15px;
-  background-color: #f9fafb;
-  max-height: 60vh;
-  overflow-y: auto;
+  padding: 0;
+  margin: 0;
 }
 
-.message {
+/* Chat item styling */
+.chat-room-item {
   display: flex;
   align-items: center;
-  max-width: 70%;
-  margin-bottom: 15px;
-  word-wrap: break-word;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 8px; /* Same padding as Friends module */
+  background-color: #f8fafc;
+  border-radius: 8px; /* Consistent border-radius */
+  margin-bottom: 6px; /* Same margin as Friends module */
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Same shadow as Friends */
 }
 
-.message:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+.chat-room-item:hover {
+  background-color: #e5f2ff;
+  transform: translateY(-1px); /* Same hover effect as Friends module */
 }
 
-/* Optimized message content for readability */
-.message-content {
-  font-family: 'Roboto', sans-serif; /* Use a clean, readable font for messages */
-  font-weight: 400; /* Normal weight for message content */
-  font-size: 15px; /* Slightly larger font for better readability */
-  line-height: 1.6; /* Increased line height for better spacing */
-  letter-spacing: 0.2px; /* Add subtle letter spacing for flow */
-}
-
-/* Messages sent by others */
-.message.received {
-  justify-content: flex-start;
-}
-
-.message.received .message-content {
-  background: linear-gradient(135deg, #e3f2fd, #d9eafc); /* Gradient background */
-  color: #333;
-  border-radius: 20px 20px 20px 5px;
-  padding: 12px 18px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-}
-
-/* Messages sent by the user */
-.message.sent {
-  justify-content: flex-end;
-}
-
-.message.sent .message-content {
-  background: linear-gradient(135deg, #1a73e8, #4285f4);
-  color: white;
-  border-radius: 20px 20px 5px 20px;
-  padding: 12px 18px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-}
-
-.message.sent .message-content:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-/* Avatar for messages */
-.message .user-icon {
-  width: 40px;
+/* Avatar (user icon) styling */
+.user-icon {
+  width: 40px; /* Same size as Friends module */
   height: 40px;
   border-radius: 50%;
+  background-color: #64b5f6;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  color: white;
-  font-size: 14px;
-  margin-right: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Chat header */
-.chat-header {
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.chat-header .chat-name {
-  font-size: 18px;
   font-weight: 600;
-}
-
-/* Chat input area */
-.chat-room-input {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  background-color: #f9fafb;
-  border-top: 1px solid #e5e7eb;
-}
-
-.chat-room-input .input {
-  flex-grow: 1;
-  padding: 10px;
-  border: none;
-  border-radius: 20px;
-  margin-right: 10px;
-  background-color: #f3f4f6;
-  font-family: 'Roboto', sans-serif; /* Ensure input text matches the message font */
-}
-
-.chat-room-input .input:focus {
-  box-shadow: 0 0 8px rgba(26, 115, 232, 0.3);
-  outline: none;
-}
-
-/* Send Button Styling */
-.send-button {
-  background: linear-gradient(135deg, #1a73e8, #4285f4);
   color: white;
-  padding: 12px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-right: 8px; /* Reduced margin for consistency */
+  font-size: 13px; /* Same font size for initials as Friends module */
+  text-transform: uppercase;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-.send-button:hover {
-  background: linear-gradient(135deg, #155bb5, #316dbf);
-  transform: scale(1.1);
+/* Chat details container */
+.chat-details {
+  flex-grow: 1;
 }
- /* Tooltip styling */
- .user-tooltip {
+
+/* Chat name styling */
+.chat-name {
+  font-size: 15px; /* Same font size as Friend names */
+  font-weight: 600; /* Bold font weight */
+  color: #333;
+  letter-spacing: 0.4px; /* Slight letter-spacing for clarity */
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Chat message preview styling */
+.chat-message {
+  font-size: 13px; /* Consistent font size with Friend status */
+  color: #6b7280;
+  font-family: 'Roboto', sans-serif; /* Same font as Friend status */
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  margin-top: 2px; /* Slight margin to separate name and message */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Handle long messages */
+}
+
+/* Tooltip styling */
+.user-tooltip {
   position: absolute;
   background-color: white;
   border: 1px solid #e0e0e0;
@@ -153,20 +91,22 @@ body, .chat-list {
   opacity: 1;
 }
 
-/* Ensure that the tooltip does not affect layout of other elements */
+/* Tooltip content */
 .tooltip-content {
   display: flex;
   flex-direction: column;
 }
 
+/* Tooltip header */
 .tooltip-header {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
 
+/* Tooltip initials */
 .tooltip-initials {
-  width: 40px;
+  width: 40px; /* Consistent with avatar size */
   height: 40px;
   border-radius: 50%;
   display: flex;
@@ -178,19 +118,20 @@ body, .chat-list {
   margin-right: 10px;
 }
 
+/* Tooltip details */
 .tooltip-details {
   display: flex;
   flex-direction: column;
 }
 
 .tooltip-name {
-  font-size: 16px;
+  font-size: 15px; /* Consistent with Friend name size */
   font-weight: bold;
   margin: 0;
 }
 
 .tooltip-title {
-  font-size: 14px;
+  font-size: 13px; /* Same size as message text */
   color: #666;
   margin: 0;
 }
@@ -205,4 +146,46 @@ body, .chat-list {
 .tooltip-location,
 .tooltip-timezone {
   margin: 0;
+}
+
+/* Chat input area */
+.chat-room-input {
+  display: flex;
+  align-items: center;
+  padding: 8px; /* Reduced padding to match compact style */
+  background-color: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+}
+
+.chat-room-input .input {
+  flex-grow: 1;
+  padding: 8px; /* Consistent padding */
+  border: none;
+  border-radius: 15px;
+  margin-right: 10px;
+  background-color: #f3f4f6;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px; /* Same size as chat message text */
+}
+
+.chat-room-input .input:focus {
+  box-shadow: 0 0 8px rgba(26, 115, 232, 0.3);
+  outline: none;
+}
+
+/* Send Button Styling */
+.send-button {
+  background: linear-gradient(135deg, #1a73e8, #4285f4);
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.send-button:hover {
+  background: linear-gradient(135deg, #155bb5, #316dbf);
+  transform: scale(1.1);
 }

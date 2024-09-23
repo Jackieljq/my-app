@@ -1,48 +1,59 @@
 /* Friend list layout */
 .friend-item {
-    display: flex;
-    align-items: center;
-    padding: 12px;
-    background-color: #f8fafc;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  }
-  
-  .friend-item:hover {
-    background-color: #e5f2ff;
-    transform: translateY(-2px);
-  }
-  
-  .friend-icon {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background-color: #64b5f6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: white;
-    margin-right: 10px;
-    font-size: 14px;
-    text-transform: uppercase;
-  }
-  
-  .friend-details {
-    flex-grow: 1;
-  }
-  
-  .friend-name {
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-  }
-  
-  .friend-status {
-    font-size: 14px;
-    color: #6b7280;
-  }
-  
+  display: flex;
+  align-items: center;
+  padding: 8px; /* Reduced padding to make items more compact */
+  background-color: #f8fafc;
+  border-radius: 8px;
+  margin-bottom: 6px; /* Reduced margin to minimize spacing between items */
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Slightly reduced shadow */
+  font-family: 'Poppins', sans-serif; /* Consistent font family */
+}
+
+.friend-item:hover {
+  background-color: #e5f2ff;
+  transform: translateY(-1px); /* Slightly reduced hover effect */
+}
+
+/* Avatar (friend icon) styling */
+.friend-icon {
+  width: 40px; /* Reduced size for more compact look */
+  height: 40px;
+  border-radius: 50%;
+  background-color: #64b5f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600; /* Bold weight for initials */
+  color: white;
+  margin-right: 8px; /* Reduced spacing between avatar and details */
+  font-size: 13px; /* Reduced font size for initials */
+  text-transform: uppercase;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+}
+
+/* Friend details container */
+.friend-details {
+  flex-grow: 1;
+}
+
+/* Friend name styling */
+.friend-name {
+  font-size: 15px; /* Reduced font size for compact appearance */
+  font-weight: 600;
+  color: #333;
+  letter-spacing: 0.4px; /* Slightly reduced letter spacing */
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Friend status styling */
+.friend-status {
+  font-size: 13px; /* Reduced font size to match compact design */
+  color: #6b7280;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; /* Normal weight for status text */
+  letter-spacing: 0.2px;
+  margin-top: 2px; /* Slight margin for separation */
+}

@@ -1,9 +1,15 @@
+/* General font styling */
+body, .main-container {
+  font-family: 'Roboto', sans-serif; /* Clean, modern font for body text */
+  font-weight: 400;
+  color: #333;
+}
+
 /* Main container layout */
 .main-container {
   display: flex;
   height: 100vh;
   background-color: #f3f4f6;
-  font-family: 'Inter', sans-serif;
   width: 100vw; /* Full-width */
   overflow: visible;
 }
@@ -12,7 +18,7 @@
 .sidebar {
   width: 220px;
   background-color: white;
-  padding: 15px;
+  padding: 20px; /* Extra padding for a clean look */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -27,7 +33,7 @@
   display: block;
   width: 110px;
   height: auto;
-  margin-bottom: 15px;
+  margin-bottom: 20px; /* Extra spacing for visual balance */
 }
 
 /* Menu Items */
@@ -37,32 +43,35 @@
 }
 
 .nav-item {
-  margin-bottom: 10px;
+  margin-bottom: 12px; /* Slightly increased spacing between items */
 }
 
 .nav-button {
   display: flex;
   align-items: center;
   font-size: 16px;
+  font-family: 'Poppins', sans-serif; /* Elegant font for menu items */
   font-weight: 500;
   color: #555;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 10px 12px;
+  padding: 12px 16px; /* Extra padding for a better look */
   width: 100%;
   border-radius: 8px;
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
 .nav-button.active {
   background-color: #1a73e8;
   color: white;
   font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for active button */
 }
 
 .nav-button:hover {
   background-color: #f1f3f5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Slight shadow on hover */
 }
 
 .logout {
@@ -84,26 +93,27 @@
   margin-left: 5px;
   max-width: calc(100vw - 240px); /* Adjust to fill available space after sidebar */
   width: 100%;
-  min-width: 300px; /* Ensure the content doesn't get too narrow */
+  min-width: 320px; /* Ensure the content doesn't get too narrow */
 }
 
 /* Search bar styling */
 .search-bar {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px; /* Extra margin for breathing room */
   background-color: #f9fafb;
-  padding: 8px 12px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  padding: 10px 14px; /* More padding for better visual impact */
+  border-radius: 12px; /* Softer corners */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
 }
 
 .search-bar input {
   flex: 1;
   border: none;
   background: transparent;
-  padding: 0 10px;
-  font-size: 14px;
+  padding: 0 12px;
+  font-size: 15px; /* Slightly larger font */
+  font-family: 'Roboto', sans-serif; /* Modern font for input */
   color: #333;
   font-weight: 500;
 }
@@ -116,24 +126,35 @@
   color: #9aa0a6;
 }
 
-/* Chats Section */
+/* Section title */
+.section-title {
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif; /* Elegant, modern font */
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Chat list layout */
 .chat-rooms-section h2 {
   font-size: 20px;
+  font-family: 'Poppins', sans-serif;
   font-weight: bold;
   margin-bottom: 15px;
   color: #333;
 }
 
+/* Chat room item */
 .chat-room-item {
   display: flex;
   align-items: center;
   padding: 12px;
   background-color: #f8fafc;
-  border-radius: 8px;
-  margin-bottom: 8px;
+  border-radius: 10px; /* Softer corners for chat items */
+  margin-bottom: 10px;
   cursor: pointer;
   transition: background 0.3s, transform 0.3s;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* Slightly stronger shadow */
 }
 
 .chat-room-item:hover {
@@ -151,7 +172,7 @@
   justify-content: center;
   font-weight: bold;
   color: white;
-  margin-right: 10px;
+  margin-right: 12px;
   font-size: 14px;
   text-transform: uppercase;
 }
@@ -162,21 +183,15 @@
 
 .chat-room-item .chat-name {
   font-size: 16px;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   color: #333;
 }
 
 .chat-room-item .chat-message {
   font-size: 14px;
+  font-family: 'Roboto', sans-serif;
   color: #6b7280;
-}
-
-/* General Typography */
-.section-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 15px;
-  color: #333;
 }
 
 /* Chat Room Styles */
@@ -186,7 +201,7 @@
   height: calc(100vh - 160px);
   background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   margin: auto;
   max-width: calc(100vw - 240px); /* Adjust chat window width based on screen size */
 }
@@ -200,11 +215,12 @@
 }
 
 .chat-room-messages p {
-  padding: 10px 15px;
+  padding: 12px 16px; /* More padding for a balanced look */
   background-color: #ffffff;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  border-radius: 12px; /* Softer corners for message bubbles */
+  margin-bottom: 12px;
   max-width: 70%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Slight shadow for depth */
 }
 
 /* Chat Input Area */
@@ -223,6 +239,13 @@
   border-radius: 20px;
   margin-right: 10px;
   background-color: #f3f4f6;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+}
+
+.chat-room-input .input:focus {
+  box-shadow: 0 0 8px rgba(26, 115, 232, 0.3);
+  outline: none;
 }
 
 /* Send Button Styling */
@@ -236,7 +259,7 @@
   justify-content: center;
   transition: background-color 0.3s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Slight shadow for elevation */
-  font-size: 18px; /* Adjust icon size */
+  font-size: 18px;
 }
 
 .send-button:hover {
@@ -250,7 +273,7 @@
   color: #555;
   padding: 10px;
   border-radius: 50%;
-  border: 1px solid #e0e0e0; /* Light border for buttons */
+  border: 1px solid #e0e0e0;
   transition: background-color 0.3s ease, transform 0.2s;
   display: flex;
   align-items: center;
@@ -260,19 +283,19 @@
 
 .attachment-button:hover, .camera-button:hover, .video-button:hover {
   background-color: #f1f3f5;
-  transform: scale(1.05); /* Slight hover effect */
+  transform: scale(1.05);
 }
 
 .attachment-button svg, .camera-button svg, .video-button svg {
-  font-size: 16px; /* Adjust icon size */
+  font-size: 16px;
 }
 
 /* Avatar Styles */
 .chat-header .user-icon {
-  width: 50px;  /* Set avatar size */
+  width: 50px;
   height: 50px;
-  border-radius: 50%; /* Make it circular */
-  background-color: #64b5f6; /* Default color */
+  border-radius: 50%;
+  background-color: #64b5f6;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -280,8 +303,8 @@
   color: white;
   font-weight: bold;
   text-transform: uppercase;
-  margin-right: 10px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for better look */
+  margin-right: 12px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Chat Room Header */
@@ -299,5 +322,5 @@
 
 .chat-status {
   font-size: 12px;
-  color: #81c784; /* Online status */
+  color: #81c784;
 }
